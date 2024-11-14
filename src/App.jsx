@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stars, Frame } from "./Components";
+import { Stars, Frame, Effects } from "./Components";
 import { Canvas } from "@react-three/fiber";
 import { Footer, AboutMe, Projects, Contacts } from "./Pages";
 import { CameraControls } from "@react-three/drei";
@@ -41,8 +41,10 @@ function App() {
         </Contacts>
       )}
       <Canvas camera={{ fov: 65 }}>
+        {/* --------------------Estrellas------------------- */}
         <Stars />
-
+        {/* -------------------------------- */}
+        {/* ------------------Frames-------------------- */}
         <group onClick={() => setShow("aboutme")}>
           <Frame
             position={[-4, 0, -1]}
@@ -78,12 +80,18 @@ function App() {
             <Phone />
           </Frame>
         </group>
+        {/* --------------------------------------------------- */}
+        {/* --------------------Efectos y Camara------------------------ */}
 
         <CameraControls
           makeDefault
           minAzimuthAngle={-Math.PI / 2.5}
           maxAzimuthAngle={Math.PI / 2.5}
         />
+
+        <Effects />
+
+        {/* ----------------------------------------- */}
       </Canvas>
     </section>
   );
